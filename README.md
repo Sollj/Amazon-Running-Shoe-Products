@@ -18,4 +18,18 @@ With a dataset containing 2,689 rows, it serves as a strategic asset, empowering
 The Running Shoes (and Trail Running Shoes) datasets serve as a toolkit for buyers or sellers seeking knowledge of running shoe brands and their products on the Amazon platform. 
 With the quantitative information in this dataset, businesses can make informed decisions to refine their product listings and formulate competitive pricing strategies. 
 The qualitative elements, such as ratings, reviews, and recent purchases, provide insights that enable businesses to tailor their products and marketing strategies to align with customer preferences and stand out in a competitive market landscape.
+
 ### Data Glossary (by column)
+
+| Columns | Data Structure (SQL) |
+| --- | --- |
+| id | INT(11) |
+| Brand | VARCHAR(255) |
+| Product Name | VARCHAR(255) |
+| Product Price | NUMERIC(10,2) |
+| Purchases in past month | INT(11) |
+| Total Reviews | INT(11) |
+| AVG Rating | NUMERIC(10,1) |
+| Date Uploaded | DATE |
+| Gender | VARCHAR(255) |
+| Category | VARCHAR(255) |
