@@ -1,0 +1,153 @@
++*In[7]:*+
+[source, ipython3]
+----
+!pip install BeautifulSoup4
+!pip install requests_html
+!pip install boto3
+----
+
+
++*Out[7]:*+
+----
+Requirement already satisfied: BeautifulSoup4 in d:\r-4.2.3\anaconda\lib\site-packages (4.12.2)
+Requirement already satisfied: soupsieve>1.2 in d:\r-4.2.3\anaconda\lib\site-packages (from BeautifulSoup4) (2.4)
+Requirement already satisfied: requests_html in d:\r-4.2.3\anaconda\lib\site-packages (0.10.0)
+Requirement already satisfied: requests in d:\r-4.2.3\anaconda\lib\site-packages (from requests_html) (2.31.0)
+Requirement already satisfied: pyquery in d:\r-4.2.3\anaconda\lib\site-packages (from requests_html) (2.0.0)
+Requirement already satisfied: fake-useragent in d:\r-4.2.3\anaconda\lib\site-packages (from requests_html) (1.3.0)
+Requirement already satisfied: parse in d:\r-4.2.3\anaconda\lib\site-packages (from requests_html) (1.19.1)
+Requirement already satisfied: bs4 in d:\r-4.2.3\anaconda\lib\site-packages (from requests_html) (0.0.1)
+Requirement already satisfied: w3lib in d:\r-4.2.3\anaconda\lib\site-packages (from requests_html) (1.21.0)
+Requirement already satisfied: pyppeteer>=0.0.14 in d:\r-4.2.3\anaconda\lib\site-packages (from requests_html) (1.0.2)
+Requirement already satisfied: appdirs<2.0.0,>=1.4.3 in d:\r-4.2.3\anaconda\lib\site-packages (from pyppeteer>=0.0.14->requests_html) (1.4.4)
+Requirement already satisfied: certifi>=2021 in d:\r-4.2.3\anaconda\lib\site-packages (from pyppeteer>=0.0.14->requests_html) (2023.7.22)
+Requirement already satisfied: importlib-metadata>=1.4 in d:\r-4.2.3\anaconda\lib\site-packages (from pyppeteer>=0.0.14->requests_html) (6.0.0)
+Requirement already satisfied: pyee<9.0.0,>=8.1.0 in d:\r-4.2.3\anaconda\lib\site-packages (from pyppeteer>=0.0.14->requests_html) (8.2.2)
+Requirement already satisfied: tqdm<5.0.0,>=4.42.1 in d:\r-4.2.3\anaconda\lib\site-packages (from pyppeteer>=0.0.14->requests_html) (4.65.0)
+Requirement already satisfied: urllib3<2.0.0,>=1.25.8 in d:\r-4.2.3\anaconda\lib\site-packages (from pyppeteer>=0.0.14->requests_html) (1.26.16)
+Requirement already satisfied: websockets<11.0,>=10.0 in d:\r-4.2.3\anaconda\lib\site-packages (from pyppeteer>=0.0.14->requests_html) (10.4)
+Requirement already satisfied: beautifulsoup4 in d:\r-4.2.3\anaconda\lib\site-packages (from bs4->requests_html) (4.12.2)
+Requirement already satisfied: lxml>=2.1 in d:\r-4.2.3\anaconda\lib\site-packages (from pyquery->requests_html) (4.9.3)
+Requirement already satisfied: cssselect>=1.2.0 in d:\r-4.2.3\anaconda\lib\site-packages (from pyquery->requests_html) (1.2.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in d:\r-4.2.3\anaconda\lib\site-packages (from requests->requests_html) (2.0.4)
+Requirement already satisfied: idna<4,>=2.5 in d:\r-4.2.3\anaconda\lib\site-packages (from requests->requests_html) (3.4)
+Requirement already satisfied: six>=1.4.1 in d:\r-4.2.3\anaconda\lib\site-packages (from w3lib->requests_html) (1.16.0)
+Requirement already satisfied: zipp>=0.5 in d:\r-4.2.3\anaconda\lib\site-packages (from importlib-metadata>=1.4->pyppeteer>=0.0.14->requests_html) (3.11.0)
+Requirement already satisfied: colorama in d:\r-4.2.3\anaconda\lib\site-packages (from tqdm<5.0.0,>=4.42.1->pyppeteer>=0.0.14->requests_html) (0.4.6)
+Requirement already satisfied: soupsieve>1.2 in d:\r-4.2.3\anaconda\lib\site-packages (from beautifulsoup4->bs4->requests_html) (2.4)
+Requirement already satisfied: boto3 in d:\r-4.2.3\anaconda\lib\site-packages (1.28.76)
+Requirement already satisfied: botocore<1.32.0,>=1.31.76 in d:\r-4.2.3\anaconda\lib\site-packages (from boto3) (1.31.76)
+Requirement already satisfied: jmespath<2.0.0,>=0.7.1 in d:\r-4.2.3\anaconda\lib\site-packages (from boto3) (0.10.0)
+Requirement already satisfied: s3transfer<0.8.0,>=0.7.0 in d:\r-4.2.3\anaconda\lib\site-packages (from boto3) (0.7.0)
+Requirement already satisfied: python-dateutil<3.0.0,>=2.1 in d:\r-4.2.3\anaconda\lib\site-packages (from botocore<1.32.0,>=1.31.76->boto3) (2.8.2)
+Requirement already satisfied: urllib3<2.1,>=1.25.4 in d:\r-4.2.3\anaconda\lib\site-packages (from botocore<1.32.0,>=1.31.76->boto3) (1.26.16)
+Requirement already satisfied: six>=1.5 in d:\r-4.2.3\anaconda\lib\site-packages (from python-dateutil<3.0.0,>=2.1->botocore<1.32.0,>=1.31.76->boto3) (1.16.0)
+----
+
+
++*In[1]:*+
+[source, ipython3]
+----
+import os
+import csv
+import requests
+# smtplib for sending emails to yourself
+import smtplib
+import time
+import datetime
+import boto3
+import openpyxl
+import json
+from bs4 import BeautifulSoup
+----
+
+
++*In[17]:*+
+[source, ipython3]
+----
+#change current working directory for more space to save HTML files
+os.chdir("D:\Running Shoes Case Study\Webpages\Running Shoes Webpages\Womens")
+----
+
+
++*In[15]:*+
+[source, ipython3]
+----
+#Creating out product data list to store the extracted data for each product
+product_data = []
+
+# Choosing our file name to loop through our HTML webpages
+for filename in os.listdir("D:\Running Shoes Case Study\Webpages\Running Shoes Webpages\Mens"):
+    if filename.endswith('.html'):
+        with open(os.path.join("D:\Running Shoes Case Study\Webpages\Running Shoes Webpages\Mens", filename), 'r', encoding='utf-8') as file:
+            content = file.read()
+
+            # Parse HTML content
+            soup = BeautifulSoup(content, 'html.parser')
+
+            # Find all divs with the specified class to identify where to start looking for each piece of information.
+            divs = soup.find_all('div', class_=("puis-card-container s-card-container s-overflow-hidden aok-relative puis-expand-height puis-include-content-margin puis puis-vmfc9hd12ljmw2usfp7jhuo3od s-latency-cf-section puis-card-border"))
+                                 
+            for div in divs:
+                # Find the product brand
+                product_brand_span = div.find('span', class_='a-size-base-plus a-color-base')
+                Product_brand = product_brand_span.text if product_brand_span else " "
+
+                # Find the product name/information
+                product_name_span = div.find('span', class_='a-size-base-plus a-color-base a-text-normal')
+                Product_name = product_name_span.text if product_name_span else " "
+
+                # Find the product price
+                product_price_span = div.find('span', class_='a-offscreen')
+                Product_Price = product_price_span.text if product_price_span else " "
+
+                # Find purchases in the past month
+                purchases_in_past_month_span = div.find('span', class_='a-size-base a-color-secondary')
+                Purchases_in_past_month = purchases_in_past_month_span.text if purchases_in_past_month_span else " "
+
+                # Find total reviews
+                total_reviews_span = div.find('span', class_='a-size-base s-underline-text')
+                total_reviews = total_reviews_span.text if total_reviews_span else " "
+
+                # Find AVG Rating
+                AVG_Rating_span = div.find('span', class_='a-icon-alt')
+                AVG_Rating = AVG_Rating_span.text if AVG_Rating_span else " "
+                
+                #Insert Gender according to our Amazon search on the HTML webpages
+                Gender = "Men's"
+                
+                # Appending the extracted data for each product to the 'product_data' list
+                product_data.append([Product_brand, Product_name, Product_Price, Purchases_in_past_month, total_reviews, AVG_Rating, Gender])
+
+# Creating and writing data to an Excel file then writing our column headers
+workbook = openpyxl.Workbook()
+worksheet = workbook.active
+
+worksheet['A1'] = 'Brand'
+worksheet['B1'] = 'Product Name'
+worksheet['C1'] = 'Product Price'
+worksheet['D1'] = 'Purchases in Past Month'
+worksheet['E1'] = 'Total Reviews'
+worksheet['F1'] = 'AVG Rating'
+worksheet['G1'] = 'Gender'
+
+# FIlls the worksheet rows with data from the 'product_data' list
+for row, data in enumerate(product_data, start=2):
+    worksheet.cell(row=row, column=1, value=data[0])
+    worksheet.cell(row=row, column=2, value=data[1])
+    worksheet.cell(row=row, column=3, value=data[2])
+    worksheet.cell(row=row, column=4, value=data[3])
+    worksheet.cell(row=row, column=5, value=data[4])
+    worksheet.cell(row=row, column=6, value=data[5])
+    worksheet.cell(row=row, column=7, value=data[6])
+    
+workbook.save('New.xlsx')
+
+----
+
+
++*In[ ]:*+
+[source, ipython3]
+----
+
+----
