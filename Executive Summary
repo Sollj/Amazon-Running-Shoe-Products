@@ -1,0 +1,23 @@
+# Executive Summary
+
+This case study delves into the performance of major running shoe brands on Amazon, analyzing key metrics over a one-month period. Notable findings reveal intriguing patterns in pricing, purchase trends, and customer reviews.
+
+**1. Pricing and Purchase Analysis:**
+
+- PUMA, Reebok, Saucony, and Skechers maintained an average price below $70 but struggled to surpass 1000 purchases in a month.
+- Nike, with a higher average price of $107.30, barely exceeded 1000 purchases, lagging behind ALTRA with a higher average price of $122.45.
+- Adidas, and ASICS had the most product purchases with a price below the average of $86.58 (excluding off-brands). Adidas, had an average price of $75.93 and ASICS with $80.80.
+
+**2. Gender Offerings and Purchases:**
+
+- Excluding Off-Brand shoes, women's products dominated purchases, yet they had roughly the same amount of product offerings as men's.
+- Brands like Adidas, Brooks, ALTRA, Hoka One, Mizuno, and PUMA showcased a higher ratio of women's products, and more female product purchases.
+
+**3. Brand Performance:**
+
+- Hoka One, positioned as a premium brand, recorded the fewest purchases and received a below-average rating of 3.90.
+- Adidas, ASICS, Under Armour, and Brooks demonstrated a strong correlation between more reviews per product, higher purchases, below average price and an above-average rating.
+
+**4. New Balance's Unique Position:**
+
+- Excluding Off-Brand products, New Balance, despite a below-average rating of 3.75, secured the 3rd position in total reviews, 4th in purchases in the past month and ranked #1 in total products offered on Amazon, showcasing a distinctive market presence.
