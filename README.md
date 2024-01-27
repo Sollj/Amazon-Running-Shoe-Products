@@ -6,7 +6,7 @@ Gathered the first 20 pages of products from Amazon for best-selling running sho
 
 ### **Content**
 
-This dataset, curated from Amazon product postings, provides a comprehensive view of the running shoes and trail running shoes market for men, and women’s shoes. Key data points, including product brand, name, gender, price, total reviews, recent month's purchases, and average rating, offer valuable insights for businesses aiming to thrive on Amazon’s platform. With a dataset containing 2,689 rows, it serves as a strategic asset, empowering businesses with a data-driven approach to optimal decision-making.
+This dataset, curated from Amazon product postings, provides a comprehensive view of the running shoes and trail running shoes market for men, and women’s shoes. Key data points, including product brand, name, gender, price, total reviews, recent month's purchases, and average rating, offer valuable insights for businesses aiming to thrive on Amazon’s platform. With a dataset containing 2,677 rows, it serves as a strategic asset, empowering businesses with a data-driven approach to optimal decision-making.
 
 ### **Business Context**
 
