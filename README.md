@@ -2,7 +2,7 @@
 
 ### Data Extraction Process
 
-Gathered the first 20 pages of products from Amazon for best-selling running shoes and trail running shoes for men and women. This means 80 web pages of product data were downloaded for the best-selling (trail) running shoes. Webpages were downloaded into HTML format and run through a Python web scraper to extract important quantitative and qualitative data points (Data Glossary contains more details). This data was imported into a. CSV file and cleaned to finally be imported into a MySQL server database for further analysis, cleaning, and wrangling. 
+Gathered the first 20 pages of products from Amazon for best-selling running shoes and trail running shoes for men and women. This means 80 web pages of product data were downloaded for the best-selling trail running shoes and running shoes. Webpages were downloaded into HTML format and run through a Python web scraper to extract important quantitative and qualitative data points (Data Glossary contains more details). This data was imported into a. CSV file and cleaned to finally be imported into a MySQL server database for further analysis, cleaning, and wrangling. 
 
 ### **Content**
 
