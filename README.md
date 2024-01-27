@@ -26,3 +26,6 @@ The Running Shoes (and Trail Running Shoes) datasets serve as a toolkit for buye
 | Date Uploaded | DATE |
 | Gender | VARCHAR(255) |
 | Category | VARCHAR(255) |
+
+
+![image](https://github.com/Sollj/Amazon-Running-Shoe-Products/assets/107280952/7d740ec8-4f3c-44bc-9a22-5021c33770a3)
